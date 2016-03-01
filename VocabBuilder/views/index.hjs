@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>{{title}}</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  </head>
+  <body ng-app = "vocabularyApp">
+		<div class="container" style= "" ng-controller = "wordList as words">
+			<h1><% title %></h1>
+			{{words.word.p}}
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<td>Word</td>	
+						<td>Meaning</td>	
+						<td>Sentence</td>	
+						<td>Synonyms</td>	
+					</tr>
+				</thead>
+				<thead >
+					<tr>
+						<td><input type="text" class="form-control" ng-model ="words.name"/></td>
+						<td><input type="text" class="form-control" ng-model ="words.meaning"/></td>
+						<td><input type="text" class="form-control" ng-model ="words.sentence"/></td>
+						<td><input type="text" class="form-control" ng-model ="words.synonyms"/></td>
+						<td><button class="btn btn-success" ng-click="words.add()">Add</button></td>
+						<td><button class="btn btn-info" ng-click = "words.update(words)">Update</button></td>
+
+					</tr>
+					<script>console.log("<% title %>"); </script>
+					<tr ng-repeat = "word in words.list" >
+					
+						<td>{{$index}}&nbsp;-&nbsp;{{word.name}}</td>
+						<td>{{word.meaning}}</td>
+						<td>{{word.sentence}}</td>
+						<td>{{word.synonyms}}</td>
+						<td><button class="btn btn-warning" ng-click = "words.edit(word)">Edit</button></td>
+						<td><button class="btn btn-danger" ng-click='words.removeWord(word)'>Delete</button></td>
+
+					</tr>
+				</thead>
+			</table>
+		</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+    <script src = "controller/controller.js"></script>
+
+  </body>
+</html>
